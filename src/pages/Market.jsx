@@ -1,23 +1,13 @@
-import React, { useState } from "react";
-import Sidebar from "../components/Sidebar";
-import Navbar from "../components/Navbar";
+import React from "react";
 import MarketList from "../components/MarketList";
+import DefaultLayout from "../layouts/Defaultlayout";
 
 const Market = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
 
   return (
-    <div className="dashboard">
-      <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-      <div className="main-content">
-        <Navbar />
-        <MarketList />
-      </div>
-    </div>
+    <DefaultLayout>
+      <MarketList />
+    </DefaultLayout>
   );
 };
 
