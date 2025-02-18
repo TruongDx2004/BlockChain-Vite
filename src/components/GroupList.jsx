@@ -1,16 +1,17 @@
 import { useState, useEffect } from 'react';
 import { GroupCard } from './GroupCard';
+import { PlusSquare } from 'react-feather'; // Import biểu tượng + (cần cài thư viện react-feather)
+import '../styles/GroupList.css';
 
 export function GroupList() {
   const [groups, setGroups] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    // Giả lập tải dữ liệu từ API
     const fetchGroups = async () => {
       try {
-        // Gọi API thực tế nếu cần
         const response = await new Promise((resolve) =>
           setTimeout(
             () =>
@@ -44,17 +45,60 @@ export function GroupList() {
     fetchGroups();
   }, []);
 
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
-      <h2 className="text-2xl font-bold text-gray-800 mb-4">My Groups</h2>
+    <div className="group-list-container">
+      <h2 className="page-title">My Groups</h2>
+
+      {/* Button to create a group */}
+      <button className="create-group-btn" onClick={handleOpenModal}>
+        <PlusSquare className="create-group-icon" /> Create Group
+      </button>
+
+      {/* Modal for creating a new group */}
+      {isModalOpen && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <h3 className="modal-title">Create New Group</h3>
+            <input
+              type="text"
+              className="input-field"
+              placeholder="Group Name"
+            />
+            <textarea
+              className="input-field"
+              placeholder="Group Description"
+            />
+            <div className="modal-actions">
+              <button
+                className="cancel-btn"
+                onClick={handleCloseModal}
+              >
+                Cancel
+              </button>
+              <button className="create-btn">
+                Create
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {loading ? (
-        <p className="text-gray-600">Loading groups...</p>
+        <p className="loading-text">Loading groups...</p>
       ) : error ? (
-        <p className="text-red-500">{error}</p>
+        <p className="error-text">{error}</p>
       ) : groups.length === 0 ? (
-        <p className="text-gray-600">No groups available.</p>
+        <p className="empty-text">No groups available.</p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="group-cards-container">
           {groups.map((group) => (
             <GroupCard key={group.id} group={group} />
           ))}
@@ -63,3 +107,5 @@ export function GroupList() {
     </div>
   );
 }
+
+export default GroupList;

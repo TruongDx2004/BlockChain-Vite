@@ -1,0 +1,123 @@
+/* GroupList.css */
+
+.group-list-container {
+    padding: 20px;
+    min-height: 100vh;
+    margin-left: 90px;
+  }
+  
+  .page-title {
+    font-size: 2.25rem;
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 24px;
+  }
+  
+  .create-group-btn {
+    background-color: #38a169;
+    color: #d2d2d2;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s;
+  }
+  
+  .create-group-btn:hover {
+    background-color: #2f855a;
+  }
+  
+  .create-group-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+  }
+  
+  .modal-content {
+    background-color: #1d1d1d;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .modal-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  
+  .input-field {
+    width: 95%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #2d3748;
+    background-color: #edf2f7;
+  }
+  
+  .modal-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .cancel-btn {
+    background-color: #e2e8f0;
+    color: #4a5568;
+    padding: 10px 20px;
+    border-radius: 6px;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #cbd5e0;
+  }
+  
+  .create-btn {
+    background-color: #3182ce;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+  }
+  
+  .create-btn:hover {
+    background-color: #2b6cb0;
+  }
+  
+  .loading-text,
+  .error-text,
+  .empty-text {
+    color: #4a5568;
+  }
+  
+  .group-cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+  
+  @media (max-width: 768px) {
+    .group-cards-container {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .group-cards-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  

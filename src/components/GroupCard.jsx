@@ -1,29 +1,19 @@
-import React from "react";
-import { Lock, Globe } from "lucide-react"; // Import icon
-
 export function GroupCard({ group }) {
   return (
-    <div className="bg-white shadow-md rounded-lg p-4 flex flex-col justify-between transition hover:shadow-lg transform hover:-translate-y-1 duration-300">
-      <div>
-        <div className="flex items-center justify-between">
-          <h3 className="text-lg font-semibold">{group.name}</h3>
-          <span className="text-sm text-gray-500">{group.members.length} members</span>
-        </div>
-        <p className="text-gray-600 mt-2">{group.description}</p>
-      </div>
-
-      <div className="flex items-center justify-between mt-4">
+    <div className="bg-white rounded-lg shadow-lg p-6 transition-transform transform hover:scale-105">
+      <h3 className="text-xl font-semibold text-gray-800 mb-2">{group.name}</h3>
+      <p className="text-gray-600 mb-4">{group.description}</p>
+      <div className="flex items-center justify-between">
         <span
-          className={`flex items-center gap-1 px-2 py-1 text-xs font-semibold rounded ${
-            group.isPrivate ? "bg-red-200 text-red-700" : "bg-green-200 text-green-700"
+          className={`px-3 py-1 text-sm font-medium rounded-full ${
+            group.isPrivate ? 'bg-red-500 text-white' : 'bg-green-500 text-white'
           }`}
         >
-          {group.isPrivate ? <Lock size={14} /> : <Globe size={14} />}
-          {group.isPrivate ? "Private" : "Public"}
+          {group.isPrivate ? 'Private' : 'Public'}
         </span>
-        <button className="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600 active:scale-95 transition">
-          View Details
-        </button>
+        <span className="text-gray-500 text-sm">
+          {group.members.length} Members
+        </span>
       </div>
     </div>
   );

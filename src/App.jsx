@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import MarketList from "./pages/Market";
 import Profile from "./pages/Profile"; 
-import CreateMarketPage from "./pages/CreateMarket";  
+import CreateMarketPage from "./pages/CreateMarket"; 
+import AddFriend from "./pages/AddFriend"; 
+import AddGroup from "./pages/AddGroup";
 
 
 function App() {
@@ -22,6 +24,12 @@ function App() {
 
           {/* Điều hướng đến trang Profile */}
           <Route path="/profile" element={<Profile />} />
+    
+          {/* Điều hướng đến trang AddFriend */}
+          <Route path="/add-friend" element={<AddFriend />} />
+
+          {/* Điều hướng đến trang AddGroup */}
+          <Route path="/add-group" element={<AddGroup />} />
         </Routes>
       </div>
     </Router>
