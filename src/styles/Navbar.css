@@ -1,0 +1,94 @@
+/* src/styles/Navbar.css */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #121212;
+  border-bottom: 1px solid #292929;
+  position: fixed;  /* Sử dụng fixed thay vì sticky */
+  top: 0;
+  right: 0;  /* Đảm bảo navbar chiếm toàn bộ chiều rộng */
+  width: auto;  /* Đảm bảo navbar có chiều rộng 100% */
+  z-index: 100;
+  left: 110px;  /* Loại bỏ margin-left để navbar không bị lệch */
+  transition: background 0.3s ease, opacity 0.3s ease;
+}
+
+
+/* Khi cuộn xuống, thêm lớp 'scrolled' */
+.navbar.scrolled {
+  background: rgba(18, 18, 18, 0.9); /* Đổi màu nền thành mờ */
+  opacity: 0.1; /* Giảm độ mờ khi cuộn xuống */
+}
+
+.search-bar {
+  flex: 1;
+  padding: 10px 15px;
+  margin-right: 5px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background: #222;
+  color: white;
+  outline: none;
+  font-size: 14px;
+  transition: all 0.3s ease-in-out;
+}
+
+.search-bar::placeholder {
+  color: #888;
+}
+
+.search-bar:focus {
+  border-color: #00ffcc;
+  background: #1a1a1a;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.buy-btn,
+.wallet-btn {
+  padding: 10px 16px;
+  margin-left: 8px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease-in-out;
+}
+
+.buy-btn {
+  background: linear-gradient(135deg, #00ffcc, #009688);
+  color: #121212;
+  box-shadow: 0 4px 10px rgba(0, 255, 204, 0.3);
+}
+
+.buy-btn:hover {
+  background: linear-gradient(135deg, #00e6b8, #00796b);
+}
+
+.wallet-btn {
+  background: linear-gradient(135deg, #ff3366, #d81b60);
+  color: white;
+  box-shadow: 0 4px 10px rgba(255, 51, 102, 0.3);
+}
+
+.wallet-btn:hover {
+  background: linear-gradient(135deg, #ff1a4d, #b71c46);
+}
+
+/* Khi kết nối thành công */
+.wallet-btn.connected {
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
+  box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+  border: 2px solid #2e7d32;
+}
+
+.wallet-btn.connected:hover {
+  background: linear-gradient(135deg, #45a049, #1b5e20);
+  box-shadow: 0 6px 15px rgba(76, 175, 80, 0.5);
+}

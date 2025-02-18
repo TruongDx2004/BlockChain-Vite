@@ -1,0 +1,118 @@
+/* Sidebar tổng thể */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background: linear-gradient(135deg, #151520, #1a1a30);
+  color: white;
+  position: fixed;
+  left: 0;
+  top: 0;
+  transition: width 0.3s ease-in-out;
+  box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.sidebar.closed {
+  width: 70px;
+}
+
+/* Header của Sidebar */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px;
+  font-size: 20px;
+  background: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: bold;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.sidebar.closed .logo {
+  display: none;
+}
+
+/* Nút toggle menu */
+.menu-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  width: 50px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.menu-toggle:hover {
+  transform: scale(1.2);
+}
+
+/* Menu chính */
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.sidebar-menu a {
+  text-decoration: none;
+  color: white;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: all 0.3s;
+  border-radius: 8px;
+  position: relative;
+}
+
+.sidebar-menu a:hover {
+  background: linear-gradient(135deg, #50fa7b, #3cebb7);
+  color: black;
+  transform: scale(1.05);
+}
+
+/* Icon trong menu */
+.sidebar-menu .icon {
+  font-size: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar-menu a:hover .icon {
+  transform: rotate(15deg);
+}
+
+/* Badge thông báo */
+.badge {
+  background: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 12px;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Khi sidebar đóng thì ẩn text */
+.sidebar.closed .sidebar-menu span {
+  display: none;
+}
+
+/* Khi sidebar đóng thì căn giữa icon */
+.sidebar.closed .sidebar-menu a  {
+  justify-content: center;
+  padding: 12px;
+}
+
+.sidebar.closed .badge {
+  right: 20px;
+}

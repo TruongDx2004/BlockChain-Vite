@@ -1,0 +1,75 @@
+.market-list {
+    color: white;
+    padding: 20px;
+    margin-left: 100px;
+}
+
+.market-list h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.market-container {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 10px;
+    
+}
+
+.market-card {
+    background: #121212;
+    padding: 15px;
+    border-radius: 10px;
+    width: 340px;
+    height: 180px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.category {
+    font-size: 14px;
+    color: #1e90ff;
+}
+
+.hashtags {
+    font-size: 12px;
+    color: gray;
+}
+
+.question {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.time {
+    font-size: 14px;
+    color: gray;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.yes-button, .no-button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.yes-button {
+    background: #00c853;
+    color: white;
+}
+
+.no-button {
+    background: #d32f2f;
+    color: white;
+}
